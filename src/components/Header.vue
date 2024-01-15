@@ -8,13 +8,16 @@ defineProps({
 
 <template>
   <header class="flex justify-between border-b border-slate-300 px-8 py-8">
-    <div class="flex items-center gap-4">
-      <img src="/logo.png" alt="Logo" class="w-14" />
-      <div>
-        <h2 class="text-xl font-bold uppercase">Vue Sneakers</h2>
-        <p class="text-slate-500">The best sneakers store</p>
-      </div>
-    </div>
+    <router-link to="/"
+      ><div class="flex items-center gap-4">
+        <img src="/logo.png" alt="Logo" class="w-14" />
+        <div>
+          <h2 class="text-xl font-bold uppercase">Vue Sneakers</h2>
+          <p class="text-slate-500">The best sneakers store</p>
+        </div>
+      </div></router-link
+    >
+
     <ul class="flex items-center gap-10">
       <li
         @click="() => emit('openDrawer')"
@@ -23,10 +26,12 @@ defineProps({
         <img src="/cart.svg" alt="Cart" />
         <b>{{ totalPrice }}$</b>
       </li>
-      <li class="flex items-center gap-3 cursor-pointer text-slate-500 hover:text-black">
-        <img src="/heart.svg" alt="Cart" />
-        <span>Favorites</span>
-      </li>
+      <router-link to="/favorites">
+        <li class="flex items-center gap-3 cursor-pointer text-slate-500 hover:text-black">
+          <img src="/heart.svg" alt="Cart" />
+          <span>Favorites</span>
+        </li>
+      </router-link>
       <li class="flex items-center gap-3 cursor-pointer text-slate-500 hover:text-black">
         <img src="/profile.svg" alt="Cart" />
         <span>Profile</span>
